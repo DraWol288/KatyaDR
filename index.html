@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>С Днём Рождения ✦ Neon</title>
+
+<!-- Three.js -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<!-- canvas-confetti -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<!-- Leaflet (бесплатная карта, без ключей) -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Наш CSS -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button class="theme-switch" id="themeBtn">🌙 Ночная версия</button>
+
+<header>
+  <h1 class="neon">С Днём Рождения! 🎉</h1>
+  <p>Этот сайт сделан специально для тебя ✦ нажми на коробку</p>
+</header>
+
+<!-- ===== 1. КОРОБКА ===== -->
+<section id="gift-section">
+  <h2>🎁 Открой коробку</h2>
+  <div class="box-wrap">
+    <div class="gift-box" id="giftBox">
+      <div class="lid"></div>
+      <div class="ribbon-v"></div>
+      <div class="base">🎵</div>
+    </div>
+    <p class="hint" id="hint">Кликни по коробке, чтобы открыть</p>
+
+    <div class="player" id="player">
+      <div class="now" id="nowPlaying">▶ Выбери песню</div>
+      <audio id="audio" controls></audio>
+      <ul class="track-list" id="trackList">
+        <!-- ЗАМЕНИ: добавь свои песни -->
+        <li data-src="1.mp3" data-name="🎂 Katy Perry - I Kissed A Girl">🎂 Katy Perry - I Kissed A Girl</li>
+        <li data-src="2.mp3" data-name="💜 Ashnikko, Princess Nokia - Slumber Party">💜 Ashnikko, Princess Nokia - Slumber Party</li>
+        <li data-src="3.mp3" data-name="💙 Kadebostany - Crazy In Love">💙 Kadebostany - Crazy In Love</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. КОМПЛИМЕНТЫ ===== -->
+<section id="compliment-section">
+  <h2>✨ Генератор комплиментов</h2>
+  <button class="btn" id="complimentBtn">Нажми, чтобы узнать, какая ты классная</button>
+  <div class="compliment" id="complimentBox">Здесь появится что-то тёплое 💜</div>
+</section>
+
+<!-- ===== 3. 3D ТОРТ ===== -->
+<section id="three-section">
+  <h2>🎂 3D Торт</h2>
+  <canvas id="three-canvas"></canvas>
+  <p class="hint" style="text-align:center;margin-top:10px;">Покрути мышкой 🖱️</p>
+</section>
+
+<!-- ===== 4. КАРТА ===== -->
+<section id="map-section">
+  <h2>🗺️ Карта поздравлений</h2>
+  <div id="map-container"></div>
+  <p class="hint" style="margin-top:12px;">💜 Фиолетовый — ты · 💙 Синий — я · Наведи или тапни ✦</p>
+</section>
+
+<!-- ===== 5. КНОПКА ПОЗДРАВИТЬ ===== -->
+<section style="text-align:center;">
+  <h2>🎊 Запустить салют</h2>
+  <button class="btn" id="partyBtn" style="font-size:1.15rem;padding:18px 44px;">Поздравить 🎉</button>
+</section>
+
+<footer>
+  Сделано с любовью 💜💙 · <span id="year"></span>
+</footer>
+
+<div class="egg-toast" id="eggToast"></div>
+
+<!-- Наш JS -->
+<script src="script.js"></script>
+</body>
+</html>
